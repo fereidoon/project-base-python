@@ -37,29 +37,29 @@ class ContactBook:
 if __name__ == "__main__":
 
     book = ContactBook()
-while True:
-    print("1. Add Contact")
-    print("2. Update Contact")
-    print("3. View Contacts")
-    print("4. Delete Contact")
-    print("5. Exit")
-    choice = input("Enter your choice: ")
-    if choice == '1':
-        name = input("Enter name: ")
-        phone = input("Enter phone: ")
-        email = input("Enter email (optional): ")
-        book.add_contact(name,phone,email)
-    elif choice == '2':
-        name = input("Enter name: ")
-        phone = input("Enter new phone (leave blank to keep unchanged): ")
-        email = input("Enter new email (leave blank to keep unchanged): ")
-        book.update_contact(name,phone if phone else None,email if email else None)
-    elif choice == '3':
-        book.view_contact()
-    elif choice == '4':
-        name = input("Enter name: ")
-        book.delete_contact(name)
-    elif choice == '5':
-        break
-    else:
-        print("Invalid choice. Please try again.")
+    while True:
+        print("1. Add Contact")
+        print("2. Update Contact")
+        print("3. View Contacts")
+        print("4. Delete Contact")
+        print("5. Exit")
+        choice = input("Enter your choice: ")
+        if choice == '1':
+            name = input("Enter name: ")
+            phone = input("Enter phone: ")
+            email = input("Enter email (optional): ")
+            book.add_contact(name,phone,email)
+        elif choice == '2':
+            name = input("Enter name: ")
+            phone = input("Enter new phone (leave blank to keep unchanged): ")
+            email = input("Enter new email (leave blank to keep unchanged): ")
+            book.update_contact(name,phone if phone else None,email if email else None)
+        elif choice == '3':
+            book.view_contact()
+        elif choice == '4':
+            name = input("Enter name: ")
+            book.delete_contact(name)
+        elif choice == '5':
+            break
+        else:
+            print("Invalid choice. Please try again.")
