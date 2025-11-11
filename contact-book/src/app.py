@@ -3,8 +3,10 @@ import streamlit as st
 from src.main import ContactBook
 
 st.title("simple CRUD app")
-
-book = ContactBook()
+# keep the ContactBook instance in session_state so data isn't lost on reruns
+if "book" not in st.session_state:
+    st.session_state.book = ContactBook()
+book = st.session_state.book
 menu = ["Add Contact", "Update Contact", "View Contacts", "Delete Contact"]
 choice = st.sidebar.selectbox("Menu", menu)
 if choice == "Add Contact":
@@ -24,12 +26,23 @@ elif choice == "Update Contact":
         book.update_contact(name, phone if phone else None, email if email else None)
         st.success(f'Contact {name} updated successfully.')
 elif choice == "View Contacts":
-    st.subheader("View Contacts")    
-    for name, info in book.contact.items():
-        st.write(f'Name: {name}')
-        st.write(f'Phone: {info["phone"]}')
-        st.write(f'Email: {info["email"]}')
-        st.write("-" * 50)
+    st.subheader("View Contacts")
+
+    # support common attribute names and avoid crashing if structure differs
+    contacts = getattr(book, "contact", None) or getattr(book, "contacts", None) or {}
+
+    # ensure we have a dict-like object
+    contacts = contacts or {}
+
+    if not contacts:
+        st.info("No contacts found.")
+    else:
+        for name, info in contacts.items():
+            st.write(f'Name: {name}')
+            # use .get to avoid KeyError and show empty string when missing
+            st.write(f'Phone: {info.get("phone", "")}')
+            st.write(f'Email: {info.get("email", "")}')
+            st.write("-" * 50)
 elif choice == "Delete Contact":
     st.subheader("Delete Contact")
     name = st.text_input("Enter name:")
