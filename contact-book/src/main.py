@@ -22,14 +22,15 @@ class ContactBook:
         print(f'Contact {name} updated successfully.')
 
     def view_contact(self,):
-        for name ,info  in self.contact.items():
+        for name, info in self.contact.items():
             print(f'name :{name}')
-            print(f'phone :{info['phone']}')
-            print(f'email : {info['email']}')
-            print("-"*50)
+            # use get to avoid KeyError when a field is missing
+            print(f'phone :{info.get("phone", "")}')
+            print(f'email : {info.get("email", "")}')
+            print("-" * 50)
     def delete_contact(self,name):
         if name not in self.contact:
-            print('Contact does not exitst.')
+            print('Contact does not exist.')
             return
         del self.contact[name]
         print(f'Contact {name} deleted successfully.')
