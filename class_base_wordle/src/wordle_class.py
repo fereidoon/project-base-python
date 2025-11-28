@@ -4,7 +4,7 @@ import random
 
 
 class wordle:
-    def __init__(self, max_attempts=7,file_path='utils/words_frequency.txt', world_length=5, limit=100):     
+    def __init__(self, max_attempts=7,file_path='data/words_frequency.txt', world_length=5, limit=100):     
         self.max_attempts = max_attempts
         self.file_path = file_path
         self.world_list = []
