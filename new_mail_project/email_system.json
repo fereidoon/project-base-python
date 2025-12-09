@@ -1,0 +1,30 @@
+{
+    "profiles": {
+        "1": {
+            "name": "master",
+            "email": "tehran",
+            "title": "linkdin/123",
+            "profession": "github/wer"
+        }
+    },
+    "templates": {
+        "2": {
+            "name": "Professional/Formal (Job Application)",
+            "body": "Dear Hiring Manager,\nI hope this email finds you well.\nI am writing to express my interest in the Software Engineer position at [Company Name], as advertised on [Job Board/Website]. With my background in Python development and my experience building data-driven applications, I am confident in my ability to contribute effectively to your team.\nAttached is my resume for your review. I would welcome the opportunity to discuss how my skills align with the goals of [Company Name].\nThank you for your time and consideration.\nSincerely,\n[Your Name]\n[Your Phone Number]"
+        }
+    },
+    "user_profiles": {
+        "2": {
+            "name": "Dave Operator",
+            "degree": "BSc Information Systems",
+            "profession": "Operator",
+            "university": "Tech Institute",
+            "personal_website": "",
+            "linkedin": "",
+            "signature": "",
+            "x": "",
+            "email": "",
+            "github": ""
+        }
+    }
+}

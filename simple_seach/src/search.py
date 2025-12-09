@@ -6,7 +6,7 @@ class Serach:
     def __init__(self,document_path):
         self.data = self.crawl(document_path)
         self.index = self.indexing(self.data)
-        
+
 
     def crawl(self,document_path):
         data ={}
@@ -34,7 +34,7 @@ class Serach:
         for token in tokens:
             docs.extend(self.index.get(token, []))
         return docs
-            
+
 if __name__ == "__main__":
     search_instance = Serach('data/documents')
     while True:
@@ -46,3 +46,4 @@ if __name__ == "__main__":
             print("Documents found:", set(results))
         else:
             print("No documents found.")
+            
