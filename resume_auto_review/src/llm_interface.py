@@ -1,5 +1,6 @@
 import os
 from openai import OpenAI
+from prompt import LLM_PROMPT, RESUME_SCHEMA
 
 api_key = os.environ.get('OPENROUTER_API_KEY')
 if not api_key:
@@ -20,5 +21,5 @@ def call_llm(prompt , model="mistralai/devstral-2512:free"):
     return response.choices[0].message.content
 
 if __name__ == "__main__":
-    test_prompt = "what is the capital of iraq"
+    test_prompt = "what is the capital of usa"
     print(call_llm(test_prompt))
